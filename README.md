@@ -14,9 +14,9 @@ Ypof/
 
 │── .gitignore
 
-# clone the repo
+# clone the repository
 
-# rontend setup (react+tailwind CSS)
+# Frontend setup (react+tailwind CSS)
 cd frontend
 npx create-react-app .
 npm install -D tailwindcss postcss autoprefixer
@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 Run the Backend Server
 
-Firebase Setup
+# Firebase Setup
 
 Go to Firebase Console
 
