@@ -16,6 +16,19 @@ build/
 .cache/  
 out/  
 
+# Python dependencies (Backend)
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.DS_Store
+backend/instance/
+backend/env/
+backend/.pytest_cache/
+
+# Firebase credentials (DO NOT COMMIT)
+backend/firebase_config.json
+backend/.env
+
 # Logs  
 logs/  
 *.log  
