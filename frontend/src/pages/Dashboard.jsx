@@ -1,7 +1,7 @@
 function Dashboard() {
     return (
       <div>
-        <h2 className="text-2xl font-bold">Welcome to YPOF Dashboard</h2>
+        <h2 className="pt-1">Welcome to YPOF Dashboard</h2>
       </div>
     );
   }
