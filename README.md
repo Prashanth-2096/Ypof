@@ -18,11 +18,17 @@ Ypof/
 
 # Frontend setup (react+tailwind CSS)
 cd frontend
+
 npm init vite@latest . -- --template react
+
 npm install
+
 npm install -D tailwindcss@3 postcss autoprefixer
+
 npx tailwindcss init -p
+
 npm run dev
+
 npm start
 
 # Backend Setup (Flask + Firebase)
