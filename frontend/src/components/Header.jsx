@@ -4,16 +4,14 @@ import { faBars, faUser, faUserPlus, faCircleUser, faCartShopping, faCat, faDog 
 
 function Header({ toggleSidebar }) {
     return (
-      <header className="w-screen grid grid-cols-9 gap-0 items-center bg-ypof text-white p-2 h-16 shadow-md">
+      <div className="relative">
+      <header className="w-screen fixed top-0 right-0 left-0 grid grid-cols-9 gap-1 items-center bg-ypof text-white p-4 h-16 shadow-md">
         <div className="col-span-2 flex items-center px-4">
-          <button className="">
-            <FontAwesomeIcon icon={faBars} />
-          </button>
 
-          <span className="text-2xl font-bold ml-4">YPOF</span>
+          <span className="text-2xl font-bold ml-8">YPOF</span>
         </div>
 
-        <nav className="col-span-7 flex justify-end">
+        <nav className=" col-span-7 flex justify-end pr-8">
           <ul className="flex space-x-6">
             <li><a href="#" className="text-ypof-background text-3xl hover:text-gray-300">
             <FontAwesomeIcon icon={faDog} /></a></li>
@@ -38,6 +36,7 @@ function Header({ toggleSidebar }) {
         </button>
       </div> */}
       </header>
+      </div>
 
     );
   }
