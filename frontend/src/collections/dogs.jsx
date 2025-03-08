@@ -25,13 +25,22 @@ const dogProducts = [
     name: "Drools Puppy Food",
     price: 600,
     image: "../public/pedigree.png",
+
+  },
+  {
+    id: 5,
+    name: "Drools Puppy Food",
+    price: 600,
+    image: "../public/pedigree.png",
   }
 ];
 
 export default function DogSection() {
   return (
-    <section className="mb-12">
-      <h2 className="text-4xl font-semibold text-[#02042B] mb-4">Dog Food</h2>
+    <section className="mb-12 mt-12 mr-2 flex-col">
+      <div>
+      <h2 className="text-4xl font-semibold text-ypof mb-4 text-center">Dog Food</h2>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
         {dogProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
