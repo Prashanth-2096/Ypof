@@ -21,9 +21,9 @@ function App() {
 
         <div className="grid grid-cols-[auto_1fr] w-full h-full">
           <Sidebar isOpen={sidebarOpen} className="w-54 h-screen" />
-          <main className="p-4 h-full w-full overflow-auto">
+          <main className="p-4 h-full w-full overflow-auto flex flex-col items-center justify-center">
             <Routes>
-              <Route path="/Homepage" element={<Homepage/>}/>
+              <Route path="/" element={<Homepage/>}/>
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/collection/cats" element={<CatSection/>} />
               <Route path="/collection/dogs" element={<DogSection/>} />

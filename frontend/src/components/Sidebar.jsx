@@ -7,32 +7,40 @@ import { MdToys } from "react-icons/md";
 import { FaUniversalAccess } from "react-icons/fa6";
 import { IoSettings } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
-import logo from "../assets/ypof_icon.png"
+import logo from "../assets/ypof_icon.png";
+import { useNavigate } from "react-router-dom";
 
 const menuItems =[
   {icons:<IoHome size={30}/>,
-    label:'Home'
+    label:'Home',
+    path:'/'
   },
   {icons:<FaDog size={30}/>,
-    label:'Dogs'
+    label:'Dogs',
+    path:'/collection/dogs'
   },
   {icons:<FaCat size={30}/>,
-    label:'Cats'
+    label:'Cats',
+    path:'/collection/cats'
   },
   {icons:<MdToys size={30}/>,
-    label:'Toys'
+    label:'Toys',
+    path:'/collection/toys'
   },
   {icons:<FaUniversalAccess size={30}/>,
-    label:'Accessories'
+    label:'Accessories',
+    path:'/'
   },
   {
     icons:<IoSettings size={30}/>,
-    label:'settings'
+    label:'settings',
+    path:'/'
   }
 ]
 
 
 function Sidebar() {
+    const navigate = useNavigate();
 
     const [open,setOpen] = useState(true)
 
@@ -51,7 +59,7 @@ function Sidebar() {
         <ul className="flex-1">
           {menuItems.map((item,index)=>{
             return(
-              <li key={index} className={` ${open ? 'rounded-md':'rounded-4xl'} px-3 py-2 flex gap-2 items-center text-xl text-ypof-background hover:bg-ypof-background  hover:text-ypof hover:cursor-pointer`}>
+              <li key={index} className={` ${open ? 'rounded-md':'rounded-4xl'} px-3 py-2 flex gap-2 items-center text-xl text-ypof-background hover:bg-ypof-background  hover:text-ypof hover:cursor-pointer`} onClick={()=>navigate(item.path)}>
                 <div>{item.icons}</div>
                 <p className={`${!open && 'w-0 translate-x-24'} duration-500 overflow-hidden`}>{item.label}</p>
               </li>

@@ -1,37 +1,38 @@
 import ProductCard from "../components/ProductCard";
+import dogpedigree from "../assets/pedigree.png"
 
 const dogProducts = [
   {
     id: 1,
     name: "Pedigree 500gm",
     price: 300,
-    image: "../public/pedigree.png",
+    image: dogpedigree,
   },
   {
     id: 2,
     name: "Royal Canin Dog Food",
     price: 800,
-    image: "../public/pedigree.png",
+    image: dogpedigree,
   },
   {
     id: 3,
     name: "Drools Puppy Food",
     price: 600,
-    image: "../public/pedigree.png",
+    image: dogpedigree,
   },
   ,
   {
     id: 4,
     name: "Drools Puppy Food",
     price: 600,
-    image: "../public/pedigree.png",
+    image: dogpedigree,
 
   },
   {
     id: 5,
     name: "Drools Puppy Food",
     price: 600,
-    image: "../public/pedigree.png",
+    image: dogpedigree,
   }
 ];
 

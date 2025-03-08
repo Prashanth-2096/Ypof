@@ -1,31 +1,32 @@
 import ProductCard from "../components/ProductCard";
+import catfood from "../assets/catfood.webp"
 
 const catProducts = [
   {
     id: 5,
     name: "Whiskas Cat Food",
     price: 450,
-    image: "../public/pedigree.png",
+    image: catfood,
   },
   {
     id: 6,
     name: "Meo Cat Food",
     price: 550,
-    image: "../public/pedigree.png",
+    image: catfood,
   },
   ,
   {
     id: 7,
     name: "Meo Cat Food",
     price: 550,
-    image: "../public/pedigree.png",
+    image: catfood,
   },
   ,
   {
     id: 8,
     name: "Meo Cat Food",
     price: 550,
-    image: "../public/pedigree.png",
+    image: catfood,
   },
 ];
 
