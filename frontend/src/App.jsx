@@ -8,6 +8,9 @@ import Dashboard from "./pages/Dashboard";
 import Cats from "./collections/cats";
 import Dogs from "./collections/dogs"
 
+import DogSection from "./collections/dogs";
+import CatSection from "./collections/cats";
+
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -28,7 +31,8 @@ function App() {
             </Routes>
           </main>
         </div>
-
+        <DogSection/>
+        <CatSection/>
         <Footer />
       </div>
     </Router>
