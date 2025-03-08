@@ -37,7 +37,7 @@ function Sidebar() {
     const [open,setOpen] = useState(true)
 
     return (
-      <nav className={`shadow-md h-screen p-2 z-50 bg-ypof flex flex-col duration-500 ${open ? 'w-60' : 'w-14'}`}>
+      <nav className={`shadow-md h-screen p-2 z-50 bg-ypof flex flex-col duration-500 ${open ? 'w-60' : 'w-16'}`}>
 
         {/* Header */}
         <div className=" py-3 px-2 h-14 flex justify-between text-ypof-background">
@@ -51,7 +51,7 @@ function Sidebar() {
         <ul className="flex-1">
           {menuItems.map((item,index)=>{
             return(
-              <li key={index} className="px-3 py-2 flex gap-2 items-center text-xl text-ypof-background rounded-md hover:bg-ypof-background  hover:text-ypof hover:cursor-pointer">
+              <li key={index} className={` ${open ? 'rounded-md':'rounded-4xl'} px-3 py-2 flex gap-2 items-center text-xl text-ypof-background hover:bg-ypof-background  hover:text-ypof hover:cursor-pointer`}>
                 <div>{item.icons}</div>
                 <p className={`${!open && 'w-0 translate-x-24'} duration-500 overflow-hidden`}>{item.label}</p>
               </li>

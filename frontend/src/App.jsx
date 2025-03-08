@@ -20,7 +20,7 @@ function App() {
           <Sidebar isOpen={sidebarOpen} />
           <main className="p-4 w-screen h-full">
             <Routes>
-              <Route path="/" element={<Homepage/>}/>
+              <Route path="/Homepage" element={<Homepage/>}/>
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/collection/cats" element={<Cats />} />
               <Route path="/collection/dogs" element={<Dogs />} />

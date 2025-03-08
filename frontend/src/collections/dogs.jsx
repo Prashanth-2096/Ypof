@@ -1,7 +1,9 @@
+import React from "react";
+
 function Dogs() {
     return (
-      <div>
-        <h2 className="pt-1">Welcome to Dogs Dashboard</h2>
+      <div className="m-8">
+        <h1 className="pt-4 ">Welcome to Dogs Dashboard</h1>
       </div>
     );
   }
