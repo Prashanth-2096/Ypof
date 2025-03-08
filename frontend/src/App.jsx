@@ -5,6 +5,9 @@ import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
 
+import DogSection from "./collections/dogs";
+import CatSection from "./collections/cats";
+
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -21,7 +24,8 @@ function App() {
             </Routes>
           </main>
         </div>
-
+        <DogSection/>
+        <CatSection/>
         <Footer />
       </div>
     </Router>
