@@ -5,8 +5,7 @@ import Homepage from "./components/Homepage";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
-import Cats from "./collections/cats";
-import Dogs from "./collections/dogs"
+
 
 import DogSection from "./collections/dogs";
 import CatSection from "./collections/cats";
@@ -25,14 +24,14 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage/>}/>
               <Route path="/Dashboard" element={<Dashboard />} />
-              <Route path="/collection/cats" element={<Cats />} />
-              <Route path="/collection/dogs" element={<Dogs />} />
+              <Route path="/collection/cats" element={<CatSection />} />
+              <Route path="/collection/dogs" element={<DogSection />} />
 
             </Routes>
           </main>
         </div>
-        <DogSection/>
-        <CatSection/>
+        {/* <DogSection/>
+        <CatSection/> */}
         <Footer />
       </div>
     </Router>

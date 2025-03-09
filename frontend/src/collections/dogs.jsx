@@ -6,7 +6,7 @@ const dogProducts = [
     name: "Pedigree 500gm",
     price: 300,
     original_price:600,
-    image: "../public/pedigree.png",
+    image: "../pedigree.png",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const dogProducts = [
     name: "Drools Puppy Food",
     price: 600,
     original_price:900,
-    image: "../public/pedigree.png",
+    image: "../pedigree.png",
   },
   ,
   {
@@ -28,7 +28,7 @@ const dogProducts = [
     name: "Drools Puppy Food",
     price: 600,
     original_price:600,
-    image: "../public/pedigree.png",
+    image: "../pedigree.png",
   }
 ];
 

@@ -6,14 +6,14 @@ const catProducts = [
     name: "Whiskas Cat Food",
     price: 450,
     original_price:500,
-    image: "../public/pedigree.png",
+    image: "../pedigree.pngg",
   },
   {
     id: 6,
     name: "Meo Cat Food",
     price: 550,
     original_price:600,
-    image: "../public/pedigree.png",
+    image: "../pedigree.png",
   },
   ,
   {
@@ -21,7 +21,7 @@ const catProducts = [
     name: "Meo Cat Food",
     price: 550,
     original_price:600,
-    image: "../public/pedigree.png",
+    image: "../pedigree.png",
   },
   ,
   {
@@ -29,7 +29,7 @@ const catProducts = [
     name: "Meo Cat Food",
     price: 550,
     original_price:600,
-    image: "../public/pedigree.png",
+    image: "../pedigree.png",
   },
 ];
 

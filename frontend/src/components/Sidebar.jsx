@@ -10,9 +10,7 @@ import { FaUserCircle } from "react-icons/fa";
 import logo from "../assets/ypof_icon.png"
 
 const menuItems =[
-  {icons:<IoHome size={30}/>,
-    label:'Home'
-  },
+  
   {icons:<FaDog size={30}/>,
     label:'Dogs'
   },
@@ -34,7 +32,7 @@ const menuItems =[
 
 function Sidebar() {
 
-    const [open,setOpen] = useState(true)
+    const [open,setOpen] = useState(false)
 
     return (
       <nav className={`shadow-md h-screen p-2 z-50 bg-ypof flex flex-col duration-500 ${open ? 'w-60' : 'w-14'}`}>
