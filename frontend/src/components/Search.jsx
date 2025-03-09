@@ -7,8 +7,8 @@ export function SearchBar() {
 
     return (
         <form className="max-w-md mx-auto flex items-center gap-2">
-            {/* Dropdown Filter */}
-            <div className="relative">
+            {/* Dropdown Filter - Hidden on small screens */}
+            <div className="relative hidden md:block">  
                 <select
                     className="p-3 text-sm bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                     value={selectedCategory}

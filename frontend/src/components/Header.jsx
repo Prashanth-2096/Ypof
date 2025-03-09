@@ -12,7 +12,7 @@ function Header({ toggleSidebar }) {
                     <span className="text-2xl font-bold">YPOF</span>
                 </div>
                 <div className="ml-4">
-                  <a className="text-white"href=""><IoHome size={30}/></a>
+                  <a className="text-white" href="./Homepage.jsx"><IoHome size={30}/></a>
                 </div>
                 {/* Search Bar (Centered & Responsive) */}
                 <div className="w-full max-w-[500px] ml-auto mr-auto">

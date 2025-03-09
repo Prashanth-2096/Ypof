@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 
 import DogSection from "./collections/dogs";
 import CatSection from "./collections/cats";
+import FAQ from "./components/faq";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -26,12 +27,16 @@ function App() {
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/collection/cats" element={<CatSection />} />
               <Route path="/collection/dogs" element={<DogSection />} />
-
+              
             </Routes>
           </main>
         </div>
         {/* <DogSection/>
         <CatSection/> */}
+        <div>
+          <FAQ/>
+        </div>
+        
         <Footer />
       </div>
     </Router>
