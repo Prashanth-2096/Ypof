@@ -1,19 +1,20 @@
 import { useState } from "react";
-import { FaHeart, FaRegHeart, FaShoppingCart } from "react-icons/fa";
-import { BsFillStarFill } from "react-icons/bs";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { IoBagOutline } from "react-icons/io5";
+import { BsFillStarFill, BsCart4 } from "react-icons/bs";
 
 export default function ProductCard({ product }) {
   const [isFavorite, setIsFavorite] = useState(false);
   const percentage_discount=Math.ceil(((product.original_price-product.price)/product.original_price)*100);
   
   return (
-    <div className="bg-[#02042B] p-4 rounded-xl shadow-lg w-64 border border-gray-700 text-white">
+    <div className="bg-ypof p-4 rounded-xl shadow-lg border border-gray-700 text-white">
       {/* Product Image & Favorite Button */}
       <div className="relative hover:cursor-pointer">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-40 object-cover border border-gray-300 rounded-lg"
+          className="w-full h-60 object-cover border border-gray-300 rounded-lg"
         />
         <button
           className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md"
@@ -26,8 +27,16 @@ export default function ProductCard({ product }) {
           )}
         </button>
       </div>
-      {/* Star Ratings */}
-      <div className="flex justify-left my-2 text-yellow-500">
+
+      {/* Product Details */}
+      <div className="mt-3 text-center">
+        <h2 className="text-lg font-bold text-white">{product.name}</h2>
+
+        <div className="flex justify-between ">
+        <p className="text-gray-300 font-semibold">₹ {product.price}/-</p>
+
+        {/* Star Ratings */}
+        <div className="flex justify-center my-2 text-yellow-500">
           {Array(5)
             .fill(0)
             .map((_, i) => (
@@ -53,17 +62,15 @@ export default function ProductCard({ product }) {
           
          
         </div>
-       
-        
-        
+        </div>
 
         {/* Buttons */}
         <div className="flex gap-2 mt-3">
-          <button className="bg-white text-black px-3 py-2 w-1/2 rounded-md shadow-md border border-gray-300">
-            BUY NOW
+          <button className="bg-white text-ypof p-1 w-1/2 rounded-md flex items-center justify-center gap-2 shadow-md border border-gray-300">
+            <IoBagOutline size={30}/> BUY NOW
           </button>
-          <button className="bg-black text-white px-3 py-2 w-1/2 rounded-md flex items-center justify-center gap-2">
-            <FaShoppingCart /> ADD TO CART
+          <button className="bg-ypof text-ypof-background p-1 w-1/2 rounded-md flex items-center justify-center gap-2 shadow-md border border-gray-300">
+            <BsCart4 size={30}/> ADD TO CART
           </button>
         </div>
       </div>

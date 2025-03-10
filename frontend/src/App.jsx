@@ -16,27 +16,21 @@ function App() {
 
   return (
     <Router>
-      <div className="grid ">
+      <div className="grid h-screen w-screen">
         <Header toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
         <div className="grid grid-cols-[auto_1fr] w-full h-full">
-          <Sidebar isOpen={sidebarOpen} />
-          <main className="p-4 w-screen h-full">
+          <Sidebar isOpen={sidebarOpen} className="w-54 h-screen" />
+          <main className="p-4 h-full w-full overflow-auto flex flex-col items-center justify-center">
             <Routes>
               <Route path="/" element={<Homepage/>}/>
               <Route path="/Dashboard" element={<Dashboard />} />
-              <Route path="/collection/cats" element={<CatSection />} />
-              <Route path="/collection/dogs" element={<DogSection />} />
-              
+              <Route path="/collection/cats" element={<CatSection/>} />
+              <Route path="/collection/dogs" element={<DogSection/>} />
+
             </Routes>
           </main>
         </div>
-        {/* <DogSection/>
-        <CatSection/> */}
-        <div>
-          <FAQ/>
-        </div>
-        
         <Footer />
       </div>
     </Router>

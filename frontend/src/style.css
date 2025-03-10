@@ -606,6 +606,10 @@ video {
   margin-left: 1rem;
 }
 
+.ml-8 {
+  margin-left: 2rem;
+}
+
 .flex {
   display: flex;
 }
@@ -632,6 +636,10 @@ video {
 
 .h-14 {
   height: 3.5rem;
+}
+
+.h-8 {
+  height: 2rem;
 }
 
 .min-h-screen {
@@ -664,6 +672,10 @@ video {
 
 .w-14 {
   width: 3.5rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .flex-1 {
