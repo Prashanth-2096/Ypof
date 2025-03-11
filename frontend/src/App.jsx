@@ -20,7 +20,7 @@ function App() {
         <Header toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
         <div className="grid grid-cols-[auto_1fr] w-full h-full">
-          <Sidebar isOpen={sidebarOpen} className="w-54 h-screen" />
+          {/* <Sidebar isOpen={sidebarOpen} className="w-54 h-screen" /> */}
           <main className="p-4 h-full w-full overflow-auto flex flex-col items-center justify-center">
             <Routes>
               <Route path="/" element={<Homepage/>}/>

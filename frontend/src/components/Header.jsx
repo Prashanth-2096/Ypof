@@ -23,7 +23,7 @@ function Header({ toggleSidebar }) {
             <input
               type="text"
               placeholder="Search..."
-              className="bg-ypof-background rounded-2xl p-2 flex-1 "
+              className="bg-ypof-background rounded-2xl p-2 flex-1 text-ypof "
             />
             <FaSearch size={20} className="absolute right-3 text-gray-500" />
           </span>

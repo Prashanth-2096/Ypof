@@ -8,24 +8,24 @@ function Footer() {
       <footer class="w-full text-ypof p-4 text-center border-4 border-t-ypof ixed top-0 right-0 left-0">
         <div className="grid grid-cols-5 text-start">
           <div className="col-span-1">
-            <h2 className="text-xl font-bold">FOLLOW YPOF</h2>
+            <h2 className="text-xl font-bold mb-4">FOLLOW YPOF</h2>
             <ul className="grid gap-4 text-lg">
-              <a href="" className="hover:text-[#1f2b78] transition duration-300 ease-in-out">
+              <a href="" className="hover:text-white transition duration-300 ease-in-out">
                 <li className="flex items-center space-x-2">
                   <FontAwesomeIcon icon={faSquareInstagram} className="text-2xl" />
                   <span>Instagram</span>
                 </li></a>
-              <a href="" className="hover:text-[#1f2b78] transition duration-300 ease-in-out">
+              <a href="" className="hover:text-white transition duration-300 ease-in-out">
                 <li className="flex items-center space-x-2">
                   <FontAwesomeIcon icon={faSquareXTwitter} className="text-2xl " />
                   <span>Twitter</span>
                 </li></a>
-                <a href="" className="hover:text-[#1f2b78] transition duration-300 ease-in-out">
+                <a href="" className="hover:text-white transition duration-300 ease-in-out">
                 <li className="flex items-center space-x-2">
                 <FontAwesomeIcon icon={faSquareReddit} className="text-2xl "/>
                   <span>Reddit</span>
                 </li></a>
-                <a href="" className="hover:text-[#1f2b78] transition duration-300 ease-in-out">
+                <a href="" className="hover:text-white transition duration-300 ease-in-out">
                 <li className="flex items-center space-x-2">
                   <FontAwesomeIcon icon={faSquareFacebook} className="text-2xl" />
                   <span>Facebook</span>
