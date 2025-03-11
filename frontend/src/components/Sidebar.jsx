@@ -42,7 +42,7 @@ const menuItems =[
 function Sidebar() {
     const navigate = useNavigate();
 
-    const [open,setOpen] = useState(true)
+    const [open,setOpen] = useState(false)
 
     return (
       <nav className={`shadow-md h-screen p-2 z-50 bg-ypof flex flex-col duration-500 ${open ? 'w-60' : 'w-16'}`}>
