@@ -5,11 +5,11 @@ import Homepage from "./components/Homepage";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
-import Cats from "./collections/cats";
-import Dogs from "./collections/dogs"
+import Login from "./components/Login"
 
 import DogSection from "./collections/dogs";
 import CatSection from "./collections/cats";
+import FAQ from "./components/faq";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -19,7 +19,8 @@ function App() {
       <div className="grid h-screen w-screen">
         <Header toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
-        <div className="grid grid-cols-[auto_1fr] w-full h-full">
+
+        <div className="grid grid-cols w-full h-full">
           {/* <Sidebar isOpen={sidebarOpen} className="w-54 h-screen" /> */}
           <main className="p-4 h-full w-full overflow-auto flex flex-col items-center justify-center">
             <Routes>
@@ -27,7 +28,7 @@ function App() {
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/collection/cats" element={<CatSection/>} />
               <Route path="/collection/dogs" element={<DogSection/>} />
-
+              <Route path="/login" element={<Login/>}/>
             </Routes>
           </main>
         </div>

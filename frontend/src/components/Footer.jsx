@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Footer() {
     return (
       <div className="static ">
-      <footer class="w-full text-ypof p-4 text-center border-4 border-t-ypof ixed top-0 right-0 left-0">
+      <footer className="w-full text-ypof p-4 text-center border-4 border-t-ypof ixed top-0 right-0 left-0">
         <div className="grid grid-cols-5 text-start">
           <div className="col-span-1">
             <h2 className="text-xl font-bold mb-4">FOLLOW YPOF</h2>
