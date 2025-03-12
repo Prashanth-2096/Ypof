@@ -1,6 +1,10 @@
-import React from "react";
-
+import {useState,React} from "react";
+import {Link} from 'react-router-dom';
 export default function Login() {
+    const [data,setData]=useState({
+        Username:'',
+        Password:''
+    })
     return (
         <div className="flex items-center justify-center bg-ypof-background">
             <div className="bg-ypof-background border border-ypof p-8 rounded-lg shadow-lg w-96">
@@ -18,8 +22,12 @@ export default function Login() {
                             type="text"
                             name="username"
                             id="username"
-                            placeholder="Enter your email or phone number"
-                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            
+                            required
+                            placeholder="Email or phone number"
+                            value={data.Email}
+                            onChange={(e)=> setData({...data,Username:e.target.value})}
+                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-ypof-background bg-ypof"
                         />
                     </div>
 
@@ -32,16 +40,19 @@ export default function Login() {
                             type="password"
                             name="password"
                             id="password"
-                            placeholder="Enter your password"
-                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
+                            placeholder="Password"
+                            value={data.Password}
+                            onChange={(e)=> setData({...data,Password:e.target.value})}
+                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-ypof-background bg-ypof"
                         />
                     </div>
 
                     {/* Forgot Password & Login Button */}
                     <div className="flex justify-between items-center">
-                        <a href="#" className="text-blue-500 text-sm hover:underline">
+                        <Link to="" className="text-blue-500 hover:underline hover:text-ypof cursor-pointer">
                             Forgot Password?
-                        </a>
+                        </Link>
                     </div>
 
                     <button
@@ -55,9 +66,9 @@ export default function Login() {
                 {/* Signup Link */}
                 <p className="text-center text-gray-600 text-sm mt-4">
                     Don't have an account?{" "}
-                    <a href="#" className="text-blue-500 hover:underline">
+                    <Link to="/signup" className="text-blue-600 hover:underline hover:text-ypof cursor-pointer">
                         Sign up
-                    </a>
+                    </Link>
                 </p>
             </div>
         </div>

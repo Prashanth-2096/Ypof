@@ -14,6 +14,7 @@ function Header({ toggleSidebar }) {
     const [CatIsOpen,setCatIsOpen]=useState(false);
     const [LoginIsOpen,setLoginIsOpen]=useState(false);
     const [LoggedIn,setLoggedIn]=useState(false);
+     
     return (
       <div className="relative mb-2 z-50">
       <header className="w-screen fixed top-0 right-0 left-0 grid grid-cols-12 gap-1 items-center bg-ypof text-white p-4 h-16 shadow-md">

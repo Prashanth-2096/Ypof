@@ -10,6 +10,7 @@ import Login from "./components/Login"
 import DogSection from "./collections/dogs";
 import CatSection from "./collections/cats";
 import FAQ from "./components/faq";
+import SignUp from "./components/SignUp";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -23,14 +24,16 @@ function App() {
           {/* <Sidebar isOpen={sidebarOpen} className="w-54 h-screen" /> */}
           <main className="p-4 h-full w-full overflow-auto flex flex-col items-center justify-center">
             <Routes>
-              <Route path="/" element={<Homepage/>}/>
+              <Route path="/" element={<><Homepage/> <FAQ/></>}/>
               <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/collection/cats" element={<CatSection/>} />
               <Route path="/collection/dogs" element={<DogSection/>} />
               <Route path="/login" element={<Login/>}/>
+              <Route path="/signup" element={<SignUp/>}/>
             </Routes>
           </main>
         </div>
+        
         <Footer />
       </div>
     </Router>
