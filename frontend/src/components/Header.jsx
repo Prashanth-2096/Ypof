@@ -8,12 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {useState} from 'react';
 import { FaCircleUser } from "react-icons/fa6";
-function Header({ toggleSidebar }) {
+import { useAuth } from "../contexts/authContext";
+function Header() {
     const navigate=useNavigate();
     const [DogIsOpen,setDogIsOpen]=useState(false);
     const [CatIsOpen,setCatIsOpen]=useState(false);
     const [LoginIsOpen,setLoginIsOpen]=useState(false);
-    const [LoggedIn,setLoggedIn]=useState(false);
+    const {user,logout}=useAuth();
+    
      
     return (
       <div className="relative mb-2 z-50">
@@ -41,74 +43,67 @@ function Header({ toggleSidebar }) {
             <FaSearch size={20} className="absolute right-3 text-gray-500" />
           </span>
         </div>
+        
         <nav className=" col-span-6 flex justify-end pr-8">
           <ul className="flex space-x-6">
-          <li className="relative">
-            {/* Main Menu Item */}
-            <button
-              onClick={() => {
-                setDogIsOpen(!DogIsOpen)
-                {CatIsOpen && setCatIsOpen(!CatIsOpen)}
-                {LoginIsOpen && setLoginIsOpen(!LoginIsOpen)}
-                }}
-              className="text-ypof-background p-1 text-2xl flex items-center "
+            <li className="relative"  
+                  onMouseEnter={() => setDogIsOpen(!DogIsOpen)}
+                  onMouseLeave={()=>setDogIsOpen(!DogIsOpen)}>
+              {/* Main Menu Item */}
+              <button className="text-ypof-background p-1 text-2xl flex items-center ">
+                <FontAwesomeIcon icon={faCat} className="mr-2" />
+                <h2>Cats</h2>
+              </button>
+
+              {/* Animated Dropdown */}
+              <AnimatePresence>
+                {DogIsOpen && (
+                  <motion.ul
+                    initial={{ opacity: 0, y: -10 }} // Start: Hidden & slightly above
+                    animate={{ opacity: 1, y: 0 }} // Animate: Fade-in & move down
+                    exit={{ opacity: 0, y: -10 }} // Exit: Fade-out & move up
+                    transition={{ duration: 0.3, ease: "easeInOut" }} // Smooth transition
+                    className="absolute left-0 mt-2 w-40 bg-ypof shadow-md rounded-lg py-2"
+                  >
+                      <div className="bg-ypof">
+                        <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Toys</li>
+                        <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Foods</li>
+                        <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Accessories</li>
+                      </div>
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </li>
+
+           <li className="relative" 
+              onMouseEnter={() => setCatIsOpen(!CatIsOpen) }
+              onMouseLeave={()=>setCatIsOpen(!CatIsOpen)}
             >
-              <FontAwesomeIcon icon={faCat} className="mr-2" />
-              <h2>Cats</h2>
-            </button>
+              {/* Main Menu Item */}
+              <button className="text-ypof-background p-1 text-2xl flex items-center " >
+                <FontAwesomeIcon icon={faDog} className="mr-2" />
+                <h2>Dogs</h2>
+              </button>
 
-            {/* Animated Dropdown */}
-            <AnimatePresence>
-              {DogIsOpen && (
-                <motion.ul
-                  initial={{ opacity: 0, y: -10 }} // Start: Hidden & slightly above
-                  animate={{ opacity: 1, y: 0 }} // Animate: Fade-in & move down
-                  exit={{ opacity: 0, y: -10 }} // Exit: Fade-out & move up
-                  transition={{ duration: 0.3, ease: "easeInOut" }} // Smooth transition
-                  className="absolute left-0 mt-2 w-40 bg-ypof-background shadow-md rounded-lg py-2"
-                >
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Toys</li>
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Foods</li>
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Accessories</li>
-                </motion.ul>
-              )}
-            </AnimatePresence>
-          </li>
-
-            <li className="relative">
-            {/* Main Menu Item */}
-            <button
-              onClick={() => {
-                setCatIsOpen(!CatIsOpen)
-                {DogIsOpen && setDogIsOpen(!DogIsOpen)}
-                {LoginIsOpen && setLoginIsOpen(!LoginIsOpen)}
-                
-              }}
-              className="text-ypof-background p-1 text-2xl flex items-center "
-            >
-              <FontAwesomeIcon icon={faDog} className="mr-2" />
-              <h2>Dogs</h2>
-            </button>
-
-            {/* Animated Dropdown */}
-            <AnimatePresence>
-              {CatIsOpen && (
-                <motion.ul
-                  initial={{ opacity: 0, y: -10 }} // Start: Hidden & slightly above
-                  animate={{ opacity: 1, y: 0 }} // Animate: Fade-in & move down
-                  exit={{ opacity: 0, y: -10 }} // Exit: Fade-out & move up
-                  transition={{ duration: 0.3, ease: "easeInOut" }} // Smooth transition
-                  className="absolute left-0 mt-2 w-40 bg-ypof shadow-md rounded-lg py-2"
-                >
-                  <div className="bg-ypof">
-                    <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Toys</li>
-                    <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Foods</li>
-                    <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Accessories</li>
-                  </div>
-                </motion.ul>
-              )}
-            </AnimatePresence>
-          </li>
+              {/* Animated Dropdown */}
+              <AnimatePresence>
+                {CatIsOpen && (
+                  <motion.ul
+                    initial={{ opacity: 0, y: -10 }} // Start: Hidden & slightly above
+                    animate={{ opacity: 1, y: 0 }} // Animate: Fade-in & move down
+                    exit={{ opacity: 0, y: -10 }} // Exit: Fade-out & move up
+                    transition={{ duration: 0.3, ease: "easeInOut" }} // Smooth transition
+                    className="absolute left-0 mt-2 w-40 bg-ypof shadow-md rounded-lg py-2"
+                  >
+                    <div className="bg-ypof">
+                      <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Toys</li>
+                      <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Foods</li>
+                      <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Accessories</li>
+                    </div>
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+           </li>
           <li className="realtive"><button
               onClick={() => {}}
               className="text-ypof-background p-1 text-2xl flex items-center "
@@ -119,48 +114,47 @@ function Header({ toggleSidebar }) {
 
           </li>
           
-          <li className="relative">
+          <li className="relative" 
+              onMouseEnter={()=>{user && setLoginIsOpen(!LoginIsOpen)}}
+              onMouseLeave={()=>{user && setLoginIsOpen(!LoginIsOpen)}}
+          >
             {/* Main Menu Item */}
             <button
-              onClick={() => {
-                navigate("/login")
-                setLoginIsOpen(!LoginIsOpen)
-                {CatIsOpen && setCatIsOpen(!CatIsOpen)}
-                {DogIsOpen && setDogIsOpen(!DogIsOpen)}
-                setLoggedIn(true);
-                }}
+              onClick={() => { !user && navigate("/login") }}
               className="text-ypof-background p-1 text-2xl flex items-center "
             >
               <FontAwesomeIcon icon={faCircleUser} className="mr-2" />
-              {(!LoggedIn) ?
+              {!user ?
                 <h2>Login</h2>
               :
-                <h2>Welcome User</h2>
-                }
+                <h2>Welcome {user.email}</h2>
+              }
             </button>
             
             {/* Animated Dropdown */}
-            {LoggedIn && <>
+            
               <AnimatePresence>
-              {LoginIsOpen && (
+              {LoginIsOpen &&
                 <motion.ul
                   initial={{ opacity: 0, y: -10 }} // Start: Hidden & slightly above
                   animate={{ opacity: 1, y: 0 }} // Animate: Fade-in & move down
                   exit={{ opacity: 0, y: -10 }} // Exit: Fade-out & move up
                   transition={{ duration: 0.3, ease: "easeInOut" }} // Smooth transition
-                  className="absolute left-0 mt-2 w-40 bg-ypof-background shadow-md rounded-lg py-2"
+                  className="absolute left-0 mt-2 w-full bg-ypof shadow-md rounded-lg py-2"
                 >
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Profile</li>
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Orders</li>
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Settings</li>
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">
-                    <button onClick={()=>setLoggedIn(false)}>Logout</button>
-                  </li>
+                <div>
+                  <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Profile</li>
+                  <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Orders</li>
+                  <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Settings</li>
+                  <button onClick={()=>{logout() && setLoginIsOpen(!LoginIsOpen)}} className="px-4 py-2 w-full text-left text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer ">Logout
+                  </button>
+                  
+                </div>
+                  
+                
                 </motion.ul>
-              )}
-            </AnimatePresence>
-            
-            </>}
+              }
+              </AnimatePresence>
             
           </li>
           </ul>

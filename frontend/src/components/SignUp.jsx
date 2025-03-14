@@ -1,10 +1,10 @@
 import {React,useState} from 'react'
-import {Link} from 'react-router-dom';
-import { createUserWithEmailAndPassword} from "firebase/auth";
+import {Link,useNavigate} from 'react-router-dom';
+import { confirmPasswordReset, createUserWithEmailAndPassword} from "firebase/auth";
 import {auth} from "../../firebaseConfig"
+import { useAuth } from '../contexts/authContext';
 
-
-export default function SignUp() {
+export default function SignUp({LoggedIn}) {
     const [data,setData]=useState({
         FirstName:'',
         LastName:'',
@@ -13,19 +13,40 @@ export default function SignUp() {
         ConfirmPassword:'',
         Phone:'',
     });
+    const {logout}=useAuth();
+    const navigate=useNavigate();
     const [error,setError]=useState(false);
     const [errorMessage,setErrorMessage]=useState('');
+    const isStrongPassword = (password) => {
+        return /^(?=.*[0-9])(?=.*[\W])(?=.{6,})/.test(password);
+    };
+    
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log(data);
+        if(data.ConfirmPassword!==data.Password){
+            setError(true);
+            setErrorMessage("Password and Confirm password must be same");
+            setData({...data,Password:'',ConfirmPassword:''});
+            return;
+        }         
+    else if (!isStrongPassword(data.ConfirmPassword)) {
+            setError(true);
+            setErrorMessage("Password must be at least 6 characters, include a number, and a special character.");
+            setData({...data,Password:'',ConfirmPassword:''});
+            return;
+        }
         try {
             const userCredential=await createUserWithEmailAndPassword(
                 auth,
                 data.Email,
-                data.Password,
-
+                data.ConfirmPassword,
             );
-            const user=userCredential.user
+            await logout()
+            setError(false);
+            setErrorMessage('');
+           
+            navigate("/login")
+
         } catch (error) {
             const errorMessage=error.message;
             const errCode=error.code;
@@ -33,7 +54,7 @@ export default function SignUp() {
 
             switch(errCode){
                 case "auth/weak-password":
-                    setErrorMessage("password is too weak.");
+                    setErrorMessage("Password is too weak.");
                     break;
                 case "auth/email-already-in-use":
                     setErrorMessage("Email already in use by another account.");
@@ -44,12 +65,19 @@ export default function SignUp() {
                 case "auth/operation-notallowed":
                     setErrorMessage("Email/password accounts are not enabled.")
                     break;
+                
                 default:
                     setErrorMessage(errorMessage);
                     break;
             }
         }
+        if(error){
+            setData({...data,Email:'',Password:'',ConfirmPassword:''})
+        }
+           
     }
+
+
     return (
         <div className="flex flex-col justify-between pt-16 items-center">
             <div className="border p-4 m-2 text-center rounded-lg border-ypof w-96">
@@ -119,6 +147,7 @@ export default function SignUp() {
                             className="p-2 text-ypof bg-ypof-background border border-ypof rounded-lg"
                         />
                     </div>
+                    
                     <div className="flex flex-col gap-2 ">
                         <label htmlFor="Phone" className="font-medium text-start">Phone*</label>
                         <input 
@@ -135,7 +164,7 @@ export default function SignUp() {
                     <button  type="submit" className="">
                         SignUp
                     </button>
-                    {error && <p>{errorMessage}</p>}
+                    {error && <p className="text-red-500">{errorMessage}</p>}
                 </form>
                 <div className="flex mt-2 gap-2">
                     <p className='text-gray-600'>Already have an account?</p>
