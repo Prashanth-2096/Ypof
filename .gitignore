@@ -48,3 +48,6 @@ Thumbs.db
 
 # Git-related  
 .git/  
+
+#Firebase auth
+firebaseConfig.js
