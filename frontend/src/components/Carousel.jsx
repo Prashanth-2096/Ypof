@@ -39,7 +39,7 @@ function Carousel (){
 
     const items = CarouselData.map((item,index)=>
         <div className='relative'>
-            <div key={index} className="w-[950px] h-[500px] mt-8 ml-40 flex justify-center items-center">
+            <div key={index} className="w-[1000px] h-[450px] mt-8 ml-40 flex justify-center items-center">
                 <img
                 className="w-full h-full object-cover rounded-lg cursor-pointer"
                 role="presentation"
