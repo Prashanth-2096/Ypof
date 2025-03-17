@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCircleUser, faCartShopping, faCat, faDog } from "@fortawesome/free-solid-svg-icons";
-import Sidebar from "./Sidebar";
 import logo from "../assets/ypof_icon.png";
-import { MdOutlineMenuOpen } from "react-icons/md";
-import { FaArrowAltCircleDown, FaArrowDown, FaCircle, FaHome, FaSearch } from "react-icons/fa";
+import { FaHome, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {useState} from 'react';
 import { FaCircleUser } from "react-icons/fa6";
+
+
 function Header({ toggleSidebar }) {
     const navigate=useNavigate();
     const [DogIsOpen,setDogIsOpen]=useState(false);
@@ -18,10 +18,10 @@ function Header({ toggleSidebar }) {
       <div className="relative mb-2 z-50">
       <header className="w-screen fixed top-0 right-0 left-0 grid grid-cols-12 gap-1 items-center bg-ypof text-white p-4 h-16 shadow-md">
         <div className="col-span-2 flex items-center px-4">
-          <h2>YPOF</h2>
           <button onClick={()=>navigate("/")} className="p-0 ml-4">
-            <FaHome size={30} className="ml-3" />
+            <img src={logo} alt="logo" className="w-8 rounded-lg" />
           </button>
+          <h2>YPOF</h2>
           {/* <div className=" py-3 px-2 h-14 flex justify-between text-ypof-background">
           <div>
             <MdOutlineMenuOpen size={30}  onClick={()=>setOpen(!open)} className={`cursor-pointer ${open ? '': 'rotate-180'}`}/>
@@ -66,9 +66,11 @@ function Header({ toggleSidebar }) {
                   transition={{ duration: 0.3, ease: "easeInOut" }} // Smooth transition
                   className="absolute left-0 mt-2 w-40 bg-ypof-background shadow-md rounded-lg py-2"
                 >
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Toys</li>
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Foods</li>
-                  <li className="px-4 py-2 text-ypof hover:bg-gray-200 cursor-pointer">Accessories</li>
+                  <div className="bg-ypof">
+                    <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Toys</li>
+                    <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Foods</li>
+                    <li className="px-4 py-2 text-ypof-background hover:bg-ypof-background hover:text-ypof cursor-pointer">Accessories</li>
+                  </div>
                 </motion.ul>
               )}
             </AnimatePresence>
@@ -108,12 +110,12 @@ function Header({ toggleSidebar }) {
               )}
             </AnimatePresence>
           </li>
-          <li className="realtive"><button
-              onClick={() => {}}
+          <li className=""><button
+
               className="text-ypof-background p-1 text-2xl flex items-center "
             >
               <FontAwesomeIcon icon={faCartShopping} className="mr-2" />
-              
+              <h2>Cart</h2>
             </button>
 
           </li>

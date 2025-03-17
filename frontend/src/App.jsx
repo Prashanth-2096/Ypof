@@ -5,11 +5,12 @@ import Homepage from "./components/Homepage";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
-import Login from "./components/Login"
+import Login from "./components/Login";
+
 
 import DogSection from "./collections/dogs";
 import CatSection from "./collections/cats";
-import FAQ from "./components/faq";
+
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
