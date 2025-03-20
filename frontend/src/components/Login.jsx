@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function Login() {
+    const navigate = useNavigate();
     return (
-        <div className="flex items-center justify-center bg-ypof-background">
+        <div className="flex items-center justify-center bg-ypof-background mt-16">
             <div className="bg-ypof-background border border-ypof p-8 rounded-lg shadow-lg w-96">
                 {/* Title */}
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
@@ -18,7 +21,7 @@ export default function Login() {
                             name="username"
                             id="username"
                             placeholder="Enter your email or phone number"
-                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full text-ypof-background mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
@@ -32,7 +35,7 @@ export default function Login() {
                             name="password"
                             id="password"
                             placeholder="Enter your password"
-                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full text-ypof-background mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
@@ -54,7 +57,7 @@ export default function Login() {
                 {/* Signup Link */}
                 <p className="text-center text-gray-600 text-sm mt-4">
                     Don't have an account?{" "}
-                    <a href="#" className="text-blue-500 hover:underline">
+                    <a onClick={() =>navigate("/signup")} className="text-blue-500 cursor-pointer hover:text-ypof">
                         Sign up
                     </a>
                 </p>
