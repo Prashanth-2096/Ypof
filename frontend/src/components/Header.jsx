@@ -126,7 +126,7 @@ function Header() {
             <button
                 onClick={() => !user && navigate("/login")}
                 className="text-ypof-background p-1 text-2xl flex items-center"
-              >
+            >
               <FontAwesomeIcon icon={faCircleUser} className="mr-2" />
               {!user ?
                 <h2>Login</h2>

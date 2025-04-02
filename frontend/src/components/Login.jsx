@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/authContext";
 
 export default function Login() {
     const [data,setData]=useState({
@@ -130,7 +131,7 @@ export default function Login() {
                     </button>                    
                     <button
                         onClick={handleGoogleSignup}
-                        className="w-full flex gap-3 items-center justify-center bg-blue-00 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300"
+                        className="w-full bg-blue-600 flex gap-3 items-center justify-center bg-blue-00 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300"
                     >
                         <img width="24" height="24" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
                         Sign in with google
