@@ -45,7 +45,7 @@ function Sidebar() {
     const [open,setOpen] = useState(false)
 
     return (
-      <nav className={`shadow-md h-screen p-2 z-50 bg-ypof flex flex-col duration-500 ${open ? 'w-60' : 'w-16'}`}>
+      <nav className={`shadow-md h-full p-2 z-50 bg-ypof flex flex-col duration-500 ${open ? 'w-60' : 'w-16'}`}>
 
         {/* Header */}
         <div className=" py-3 px-2 h-14 flex justify-between text-ypof-background">
