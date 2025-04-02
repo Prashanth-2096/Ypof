@@ -1,0 +1,52 @@
+# Node.js dependencies  
+node_modules/  
+npm-debug.log  
+yarn-error.log  
+
+# Environment variables  
+.env  
+.env.local  
+.env.development.local  
+.env.test.local  
+.env.production.local  
+
+# Build and cache files  
+dist/  
+build/  
+.cache/  
+out/  
+
+# Python dependencies (Backend)
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.DS_Store
+backend/instance/
+backend/env/
+backend/.pytest_cache/
+
+# Firebase credentials (DO NOT COMMIT)
+backend/firebase_config.json
+backend/.env
+
+# Logs  
+logs/  
+*.log  
+npm-debug.log*  
+yarn-debug.log*  
+yarn-error.log*  
+
+# Editor-specific files  
+.vscode/  
+.idea/  
+*.swp  
+*.swo  
+
+# OS-generated files  
+.DS_Store  
+Thumbs.db  
+
+# Git-related  
+.git/  
+
+

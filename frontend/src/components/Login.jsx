@@ -1,10 +1,5 @@
-import {useState,React} from "react";
-import {Link,useNavigate} from 'react-router-dom';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import {auth} from '../../firebaseConfig';
-import Header from "./Header";
-import { useAuth } from "../contexts/authContext.jsx"; 
-
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const [data,setData]=useState({
@@ -83,6 +78,7 @@ export default function Login() {
             }
         }
     }
+
     return (
         <div className="flex items-center justify-center bg-ypof-background mt-16">
             <div className="bg-ypof-background border border-ypof p-8 rounded-lg shadow-lg w-96">
@@ -90,22 +86,18 @@ export default function Login() {
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
 
                 {/* Login Form */}
-                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                <form className="flex flex-col gap-4">
                     {/* Username Input */}
                     <div>
                         <label htmlFor="username" className="block text-gray-700 font-medium">
                             Username
                         </label>
                         <input
-                            type="email"
+                            type="text"
                             name="username"
                             id="username"
-                            
-                            required
-                            placeholder="Email or phone number"
-                            value={data.UserName}
-                            onChange={(e)=> setData({...data,UserName:e.target.value})}
-                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-ypof-background bg-ypof"
+                            placeholder="Enter your email or phone number"
+                            className="w-full text-ypof-background mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
@@ -118,19 +110,16 @@ export default function Login() {
                             type="password"
                             name="password"
                             id="password"
-                            required
-                            placeholder="Password"
-                            value={data.Password}
-                            onChange={(e)=> setData({...data,Password:e.target.value})}
-                            className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-ypof-background bg-ypof"
+                            placeholder="Enter your password"
+                            className="w-full text-ypof-background mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
                     {/* Forgot Password & Login Button */}
                     <div className="flex justify-between items-center">
-                        <Link to="" className="text-blue-500 hover:underline hover:text-ypof cursor-pointer">
+                        <a href="#" className="text-blue-500 text-sm hover:underline">
                             Forgot Password?
-                        </Link>
+                        </a>
                     </div>
 
                     <button
@@ -138,8 +127,7 @@ export default function Login() {
                         className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300"
                     >
                         Login
-                    </button>
-                    
+                    </button>                    
                     <button
                         onClick={handleGoogleSignup}
                         className="w-full flex gap-3 items-center justify-center bg-blue-00 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300"
@@ -154,9 +142,9 @@ export default function Login() {
                 {/* Signup Link */}
                 <p className="text-center text-gray-600 text-sm mt-4">
                     Don't have an account?{" "}
-                    <Link to="/signup" className="text-blue-600 hover:underline hover:text-ypof cursor-pointer">
+                    <a onClick={() =>navigate("/signup")} className="text-blue-500 cursor-pointer hover:text-ypof">
                         Sign up
-                    </Link>
+                    </a>
                 </p>
             </div>
         </div>

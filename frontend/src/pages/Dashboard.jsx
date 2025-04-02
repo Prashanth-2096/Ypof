@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const Navigate=useNavigate()
   return (
-    <div className="bg-ypof-background w-full h-full flex flex-col items-center justify-center p-8 m-8 gap-8">
+    <div className="bg-ypof-background w-screen h-full flex flex-col items-center justify-center p-8 m-8 gap-8">
       {/* Title */}
       <h1 className="text-4xl font-bold text-center text-ypof mb-8">
         Choose your Pet
