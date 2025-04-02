@@ -127,7 +127,7 @@ function Header() {
               {!user ?
                 <h2>Login</h2>
               :
-                <h2>Welcome {user.email}</h2>
+                <h2>Welcome {user.displayName}</h2>
               }
             </button>
             

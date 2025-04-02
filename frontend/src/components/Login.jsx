@@ -12,7 +12,7 @@ export default function Login() {
         Password:''
     })
     const navigate=useNavigate();
-    const {login}=useAuth();
+    const {login,googleLogin}=useAuth();
     const [error,setError]=useState(false);
     const [errorMessage,setErrorMessage]=useState('');
     const handleSubmit=async (e)=>{
@@ -43,6 +43,39 @@ export default function Login() {
                 case "auth/wrong-password":
                     setErrorMessage("Password entered is incorrect");
                     setData({...data,Password:''})
+                    break;  
+                default:
+                    setErrorMessage(errorMessage);
+                    break;
+            }
+        }
+    }
+
+    const handleGoogleSignup=async (e)=>{
+        e.preventDefault();
+        try {
+            await googleLogin();
+            
+            navigate("/");
+            console.log("LoggedIn successfully")
+                     
+        } catch (error) {
+            const errorMessage=error.message;
+            const errorCode=error.code;
+            setError(true);
+            
+            switch (errorCode) {
+                case "auth/operation-not-allowed":
+                    setErrorMessage("Email/password accounts are not enabled.");
+                    break;
+                case "auth/operation-not-supported-in-this-environment":
+                    setErrorMessage("HTTP protocol is not supported. Please use HTTPS.");
+                    break;
+                case "auth/popup-blocked":
+                    setErrorMessage("Popup has been blocked by the browser. Please allow popups for this website.");
+                    break;
+                case "auth/popup-closed-by-user":
+                    setErrorMessage("Popup has been closed by the user before finalizing the operation. Please try again.");
                     break;  
                 default:
                     setErrorMessage(errorMessage);
@@ -105,6 +138,14 @@ export default function Login() {
                         className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300"
                     >
                         Login
+                    </button>
+                    
+                    <button
+                        onClick={handleGoogleSignup}
+                        className="w-full flex gap-3 items-center justify-center bg-blue-00 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300"
+                    >
+                        <img width="24" height="24" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
+                        Sign in with google
                     </button>
                     
                     {error && <p className="font-semibold text-red-400">{errorMessage}</p>}
