@@ -123,14 +123,20 @@ function Header() {
               onMouseEnter={() => user && setLoginIsOpen(true)}
               onMouseLeave={() => user && setLoginIsOpen(false)}
             >
-              <button
+            <button
                 onClick={() => !user && navigate("/login")}
                 className="text-ypof-background p-1 text-2xl flex items-center"
               >
-                <FontAwesomeIcon icon={faCircleUser} className="mr-2" />
-                {!user ? <h2>Login</h2> : <h2>Welcome {user.email}</h2>}
-              </button>
-
+              <FontAwesomeIcon icon={faCircleUser} className="mr-2" />
+              {!user ?
+                <h2>Login</h2>
+              :
+                <h2>Welcome {user.displayName}</h2>
+              }
+            </button>
+            
+            {/* Animated Dropdown */}
+            
               <AnimatePresence>
                 {LoginIsOpen && (
                   <motion.ul
